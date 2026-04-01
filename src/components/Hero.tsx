@@ -10,7 +10,7 @@ const phrases = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg pt-20 sm:pt-24">
       {/* Background orbs */}
       <div
         className="glow-orb w-[600px] h-[600px] bg-accent top-[-200px] left-[-200px]"
