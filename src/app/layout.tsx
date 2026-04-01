@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         alt: "Quijote Labs logo",
       },
       {
-        url: "/assets/qlabs-q-diamond-512.png",
+        url: "/assets/logo.png",
         type: "image/png",
         width: 512,
         height: 512,
