@@ -19,7 +19,7 @@ const plans = [
   {
     name: "A la medida",
     desc: "Si tu operación es más compleja, lo diseñamos desde cero.",
-    price: "A la medida",
+    price: "Personalizado",
     note: "Más complejo, más retorno.",
   },
 ];
