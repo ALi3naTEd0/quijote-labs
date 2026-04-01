@@ -31,20 +31,19 @@ export const metadata: Metadata = {
     url: "https://quijotelabs.com",
     images: [
       {
-        url: "/assets/logo.svg",
-        type: "image/svg+xml",
+        url: "https://quijotelabs.com/assets/logo.png",
+        type: "image/png",
         width: 512,
         height: 512,
         alt: "Quijote Labs logo",
       },
-      {
-        url: "/assets/logo.png",
-        type: "image/png",
-        width: 512,
-        height: 512,
-        alt: "Quijote Labs Q logo",
-      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quijote Labs",
+    description: "Tu desorden no es creatividad. Es falta de procesos.",
+    images: ["https://quijotelabs.com/assets/logo.png"],
   },
 };
 
