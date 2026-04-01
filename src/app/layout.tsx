@@ -28,6 +28,23 @@ export const metadata: Metadata = {
     description:
       "Tu desorden no es creatividad. Es falta de procesos.",
     type: "website",
+    url: "https://quijotelabs.com",
+    images: [
+      {
+        url: "/assets/logo.svg",
+        type: "image/svg+xml",
+        width: 512,
+        height: 512,
+        alt: "Quijote Labs logo",
+      },
+      {
+        url: "/assets/qlabs-q-diamond-512.png",
+        type: "image/png",
+        width: 512,
+        height: 512,
+        alt: "Quijote Labs Q logo",
+      },
+    ],
   },
 };
 
