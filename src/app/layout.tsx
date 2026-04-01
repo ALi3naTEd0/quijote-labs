@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Quijote Labs",
     description: "Tu desorden no es creatividad. Es falta de procesos.",
     images: ["https://quijotelabs.com/assets/logo.png"],
