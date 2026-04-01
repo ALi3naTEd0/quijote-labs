@@ -42,7 +42,7 @@ export default function CTA() {
           </div>
 
           <motion.a
-            href="mailto:hola@quijotelabs.com"
+            href="mailto:admin@quijotelabs.com"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-accent hover:bg-accent-light text-white rounded-2xl font-semibold text-lg transition-colors duration-300 relative overflow-hidden group"
@@ -52,7 +52,7 @@ export default function CTA() {
           </motion.a>
 
           <p className="mt-6 text-sm text-muted">
-            hola@quijotelabs.com
+            admin@quijotelabs.com
           </p>
         </AnimatedSection>
       </div>

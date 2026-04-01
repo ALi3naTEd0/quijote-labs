@@ -93,7 +93,7 @@ export default function ChatWidget() {
             id: crypto.randomUUID(),
             role: "assistant",
             content:
-              "Algo salió mal. Intenta de nuevo o escríbenos a hola@quijotelabs.com",
+              "Algo salió mal. Intenta de nuevo o escríbenos a admin@quijotelabs.com",
           },
         ]);
       } finally {
@@ -127,7 +127,7 @@ export default function ChatWidget() {
     const body = encodeURIComponent(
       `Hola equipo de Quijote Labs,\n\nAcabo de hacer el diagnóstico express y me gustaría profundizar.\n\nAquí va el resumen de mi conversación:\n\n${summary}\n\n---\nQuedo al pendiente para agendar una sesión.`
     );
-    return `mailto:edfortuny@gmail.com,1eduardomagana@gmail.com?subject=${subject}&body=${body}`;
+    return `mailto:admin@quijotelabs.com?subject=${subject}&body=${body}`;
   };
 
   return (
