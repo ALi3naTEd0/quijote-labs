@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 
 const phrases = [
-  "Tu desorden no es creatividad.",
-  "Es falta de procesos.",
-  "La IA no arregla la estupidez operativa.",
+  "✓ Más clientes sin perseguirlos",
+  "✓ Menos errores que te cuestan dinero",
+  "✓ Un negocio que funciona aunque no estés",
 ];
 
 export default function Hero() {
@@ -76,11 +76,11 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="text-lg sm:text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-10 leading-relaxed"
         >
-          Si tu empresa no funciona sin ti,{" "}
-          <span className="text-foreground font-medium">
-            tienes un hobby muy caro
-          </span>
-          .
+          <span className="text-accent font-mono">$</span>{" "}
+          <span className="text-green-400">
+            Si tu negocio depende de ti, no es negocio. Es autoempleo caro.
+          </span>{" "}
+          <span className="animate-pulse">▊</span>
         </motion.p>
 
         {/* Rotating phrases */}

@@ -8,6 +8,7 @@ const navLinks = [
   { href: "#solucion", label: "Intervención" },
   { href: "#sancho", label: "SANCHO" },
   { href: "#diferencial", label: "Lo que no somos" },
+  { href: "#pricing", label: "Precios" },
   { href: "#contacto", label: "Contacto" },
 ];
 

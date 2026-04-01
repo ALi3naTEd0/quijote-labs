@@ -68,6 +68,7 @@ body {
   position: relative;
   background: var(--surface);
   border-radius: 1rem;
+  isolation: isolate;
 }
 
 .border-gradient::before {
@@ -81,6 +82,8 @@ body {
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Noise texture overlay — applied as pseudo-element on body */

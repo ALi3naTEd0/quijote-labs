@@ -10,8 +10,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
       </svg>
     ),
-    title: "Procesos reales",
-    desc: "Si no está escrito, no existe. Aquí todo queda definido.",
+    title: "Procesos que generan dinero",
+    desc: "Cada paso tiene un objetivo: vender más, cobrar mejor o no perder clientes.",
   },
   {
     icon: (
@@ -20,8 +20,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
       </svg>
     ),
-    title: "Menos trabajo manual",
-    desc: "Lo que haces 50 veces al mes, SANCHO lo hace solo.",
+    title: "Automatización útil",
+    desc: "Lo repetitivo se va. Lo importante se queda contigo.",
   },
   {
     icon: (
@@ -29,8 +29,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
       </svg>
     ),
-    title: "Datos, no opiniones",
-    desc: "Deja de adivinar. Aquí los números hablan por ti.",
+    title: "Números incómodos (pero necesarios)",
+    desc: "Ves exactamente dónde estás perdiendo dinero.",
   },
   {
     icon: (
@@ -38,8 +38,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
       </svg>
     ),
-    title: "Cada quién sabe qué hacer",
-    desc: "Sin perseguir gente. Sin preguntar dos veces.",
+    title: "Gente que sabe qué hacer",
+    desc: "Sin perseguir. Sin repetir. Sin adivinar.",
   },
   {
     icon: (
@@ -47,8 +47,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
       </svg>
     ),
-    title: "Decisiones con cerebro",
-    desc: "Las corazonadas se acabaron. Aquí se decide con información.",
+    title: "Menos intuición cara",
+    desc: "Más decisiones que sí funcionan.",
   },
   {
     icon: (
@@ -56,8 +56,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
       </svg>
     ),
-    title: "Donde estés, cuando quieras",
-    desc: "Tu negocio completo en tu bolsillo. Sin llamar a nadie.",
+    title: "Tu negocio en el bolsillo",
+    desc: "Sin llamadas. Sin depender de nadie.",
   },
 ];
 
@@ -77,10 +77,11 @@ export default function Sancho() {
             <span className="gradient-text">SANCHO</span>
           </h2>
           <p className="text-xl text-muted max-w-3xl mx-auto mb-4">
-            Tu negocio en un solo lugar. Sin excel. Sin WhatsApp. Sin excusas.
+            Ventas, operaciones y dinero en un solo sistema que trabaja por ti 24/7.
           </p>
           <p className="text-lg text-muted max-w-2xl mx-auto">
-            Un sistema que hace lo que tú ya deberías haber dejado de hacer a mano.
+            Menos Excel. Menos WhatsApp. Menos &ldquo;se me fue&rdquo;.
+            Más control. Más claridad. Más dinero.
           </p>
         </AnimatedSection>
 
@@ -109,9 +110,9 @@ export default function Sancho() {
                 {/* Dashboard mockup */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   {[
-                    { label: "Procesos sin ti", value: "24", change: "+3" },
-                    { label: "Cosas que ya nadie hace a mano", value: "156", change: "+12" },
-                    { label: "Horas devueltas", value: "40h", change: "/sem" },
+                    { label: "Procesos automatizados", value: "24", change: "+3" },
+                    { label: "Errores que ya no pasan", value: "-78%", change: "" },
+                    { label: "Tiempo recuperado", value: "40h", change: "/sem" },
                   ].map((stat) => (
                     <motion.div
                       key={stat.label}

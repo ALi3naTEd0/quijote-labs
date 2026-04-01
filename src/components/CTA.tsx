@@ -47,12 +47,15 @@ export default function CTA() {
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-accent hover:bg-accent-light text-white rounded-2xl font-semibold text-lg transition-colors duration-300 relative overflow-hidden group"
           >
-            <span className="relative z-10">Diagnosticar mi negocio →</span>
+            <span className="relative z-10">Descubrir dónde estoy perdiendo dinero →</span>
             <div className="absolute inset-0 bg-gradient-to-r from-accent to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.a>
 
           <p className="mt-6 text-sm text-muted">
-            admin@quijotelabs.com
+            Te lo decimos en menos de 72h.
+          </p>
+          <p className="mt-2 text-sm text-muted">
+            Y si no quieres hacerlo con nosotros, al menos ya sabes qué arreglar.
           </p>
         </AnimatedSection>
       </div>

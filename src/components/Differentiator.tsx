@@ -6,15 +6,15 @@ import AnimatedSection from "./AnimatedSection";
 const differentials = [
   {
     not: "No somos agencia.",
-    desc: "No hacemos tu logo bonito. Hacemos que tu negocio funcione.",
+    desc: "No entregamos cosas. Arreglamos cómo funciona tu negocio.",
   },
   {
-    not: "No somos consultoría de PowerPoint.",
-    desc: "No te damos 200 slides para que las guardes en un cajón.",
+    not: "No somos consultoría.",
+    desc: "No te dejamos tareas. Las implementamos contigo.",
   },
   {
-    not: "No somos tu primo que programa.",
-    desc: "No hacemos una app y desaparecemos. Rediseñamos cómo opera todo.",
+    not: "No somos desarrolladores.",
+    desc: "No hacemos apps. Diseñamos cómo operas.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function Differentiator() {
             <span className="gradient-text">No vendemos código.</span>
           </h2>
           <p className="text-xl text-muted max-w-2xl mx-auto">
-            Vendemos que tu negocio deje de depender de ti para funcionar.
+            Diseñamos sistemas que hacen que tu negocio venda, cobre y opere sin que tú estés encima.
           </p>
         </AnimatedSection>
 
@@ -59,14 +59,14 @@ export default function Differentiator() {
         <AnimatedSection>
           <div className="text-center border-gradient p-12 max-w-3xl mx-auto">
             <p className="text-lg text-muted mb-4">
-              Entramos cuando el negocio{" "}
+              Entramos cuando el negocio ya vende&hellip;{" "}
               <span className="text-foreground font-medium">
-                ya creció pero huele a caos
+                pero sigue dependiendo de apagar fuegos.
               </span>
-              .
             </p>
             <p className="text-2xl font-bold gradient-text">
-              Lo que sigue no es más esfuerzo. Es estructura.
+              Más esfuerzo no lo va a arreglar.<br />
+              <span className="text-foreground">Más estructura, sí.</span>
             </p>
           </div>
         </AnimatedSection>

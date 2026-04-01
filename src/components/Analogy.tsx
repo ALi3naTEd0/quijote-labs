@@ -30,8 +30,8 @@ export default function Analogy() {
               </h3>
               <div className="w-16 h-px bg-accent/30 mx-auto mb-8" />
               <p className="text-lg text-muted italic">
-                &ldquo;Toda empresa exitosa empezó como
-                una idea que parecía estúpida.&rdquo;
+                &ldquo;Toda empresa empieza con una idea&hellip;
+                las que crecen, la vuelven sistema.&rdquo;
               </p>
             </div>
           </div>
