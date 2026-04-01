@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     url: "https://quijotelabs.com",
     images: [
       {
-        url: "https://quijotelabs.com/assets/logo.png",
+        url: "https://quijotelabs.com/opengraph-image",
         type: "image/png",
-        width: 512,
-        height: 512,
-        alt: "Quijote Labs logo",
+        width: 1200,
+        height: 630,
+        alt: "Quijote Labs",
       },
     ],
   },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Quijote Labs",
     description: "Tu desorden no es creatividad. Es falta de procesos.",
-    images: ["https://quijotelabs.com/assets/logo.png"],
+    images: ["https://quijotelabs.com/opengraph-image"],
   },
 };
 
