@@ -25,8 +25,9 @@ export default function Differentiator() {
 
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
-            Lo que no somos
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shrink-0" />
+              Lo que no somos
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             <span className="gradient-text">No vendemos código.</span>

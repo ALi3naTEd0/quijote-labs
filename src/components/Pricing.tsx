@@ -31,8 +31,9 @@ export default function Pricing() {
 
       <div className="max-w-6xl mx-auto px-6 text-center">
         <AnimatedSection>
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
-            Inversión
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shrink-0" />
+              Inversión
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             <span className="gradient-text">Empieza entendiendo tu caos.</span>
@@ -50,9 +51,10 @@ export default function Pricing() {
                 whileHover={{ y: -4 }}
                 className="border-gradient p-8 h-full text-left"
               >
+                <div className="w-8 h-0.5 bg-accent/50 mb-5 rounded-full" />
                 <h3 className="font-bold text-xl mb-4">{plan.name}</h3>
                 <p className="text-muted mb-6 leading-relaxed">{plan.desc}</p>
-                <p className="text-2xl font-bold mb-4 gradient-text whitespace-nowrap">{plan.price}</p>
+                <p className="text-2xl font-bold mb-4 text-accent-light whitespace-nowrap">{plan.price}</p>
                 <p className="text-sm text-muted">{plan.note}</p>
               </motion.div>
             </AnimatedSection>

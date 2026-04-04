@@ -12,8 +12,9 @@ export default function Solution() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: text */}
           <AnimatedSection>
-            <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
-              La Intervención
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shrink-0" />
+                La Intervención
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
               No te damos herramientas.{" "}

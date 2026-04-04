@@ -104,8 +104,9 @@ export default function PreDiagnosis() {
 
       <div className="max-w-3xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
-            Pre-diagnóstico
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shrink-0" />
+              Pre-diagnóstico
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Antes de hablar&hellip;{" "}

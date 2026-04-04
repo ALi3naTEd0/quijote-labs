@@ -39,7 +39,7 @@ export default function Navbar() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/logo-mark.svg" width={36} height={36} alt="Quijote Labs" />
           <span className="font-bold text-base tracking-[0.12em] uppercase">
-            Quijote <span className="text-accent font-bold tracking-[0.18em]">Labs</span>
+            Quijote <span className="text-accent-light font-bold tracking-[0.18em]">Labs</span>
           </span>
         </a>
 

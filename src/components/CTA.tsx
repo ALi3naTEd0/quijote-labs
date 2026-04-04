@@ -10,8 +10,9 @@ export default function CTA() {
 
       <div className="max-w-4xl mx-auto px-6 text-center">
         <AnimatedSection>
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-8">
-            El Momento
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shrink-0" />
+              El Momento
           </span>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
