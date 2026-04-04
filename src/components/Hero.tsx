@@ -50,10 +50,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
-          <span className="text-sm text-muted font-mono">
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="text-sm text-white font-mono">
             Locura con estructura
           </span>
         </motion.div>
@@ -96,7 +96,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 1 + i * 0.15 }}
-              className="px-4 py-2 text-sm font-mono text-white/60 border border-white/10 rounded-lg bg-white/5"
+              className="px-4 py-2 text-sm font-mono text-white border border-accent/30 rounded-lg bg-accent/10"
             >
               {phrase}
             </motion.span>

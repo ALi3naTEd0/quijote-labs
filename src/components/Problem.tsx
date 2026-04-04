@@ -37,7 +37,7 @@ export default function Problem() {
     <section id="problema" className="relative py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-6">
+          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
             El Diagnóstico
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -53,7 +53,7 @@ export default function Problem() {
           {problems.map((problem, i) => (
             <AnimatedSection key={problem.title} delay={i * 0.15}>
               <div className="border-gradient p-8 h-full">
-                <div className="w-12 h-12 rounded-xl bg-white/5 text-white/50 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent-light flex items-center justify-center mb-5">
                   {problem.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{problem.title}</h3>

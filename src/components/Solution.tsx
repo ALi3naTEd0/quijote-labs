@@ -12,7 +12,7 @@ export default function Solution() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: text */}
           <AnimatedSection>
-            <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-6">
+            <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
               La Intervención
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
@@ -36,7 +36,7 @@ export default function Solution() {
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                       <svg
-                        className="w-4 h-4 text-white/50"
+                        className="w-4 h-4 text-accent-light"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

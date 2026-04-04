@@ -70,7 +70,7 @@ export default function Sancho() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <AnimatedSection className="text-center mb-20">
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-6">
+          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-6">
             El Sistema
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -156,7 +156,7 @@ export default function Sancho() {
                       <div className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-md bg-accent/10 flex items-center justify-center">
                           <svg
-                            className="w-3 h-3 text-white/50"
+                            className="w-3 h-3 text-accent-light"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -185,7 +185,7 @@ export default function Sancho() {
           {features.map((feature, i) => (
             <AnimatedSection key={feature.title} delay={i * 0.1}>
               <div className="border-gradient p-6 h-full hover:bg-surface-light/50 transition-colors duration-300">
-                <div className="w-10 h-10 rounded-lg bg-white/5 text-white/50 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 text-accent-light flex items-center justify-center mb-4">
                   {feature.icon}
                 </div>
                 <h3 className="font-semibold mb-2">{feature.title}</h3>

@@ -9,7 +9,7 @@ export default function Analogy() {
         <AnimatedSection>
           <div className="border-gradient p-12 md:p-16 text-center">
             <div className="max-w-3xl mx-auto">
-              <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-8">
+              <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white border border-accent/30 rounded-full bg-accent/10 mb-8">
                 La Filosofía
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
