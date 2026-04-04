@@ -32,7 +32,7 @@ export default function Hero() {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute h-px bg-gradient-to-r from-transparent via-accent to-transparent w-full"
+            className="absolute h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full"
             style={{ top: `${20 + i * 15}%` }}
             animate={{ x: ["-10%", "10%", "-10%"] }}
             transition={{
@@ -52,7 +52,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
           <span className="text-sm text-muted font-mono">
             Locura con estructura
           </span>
@@ -76,7 +76,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="text-lg sm:text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-10 leading-relaxed"
         >
-          <span className="text-accent font-mono">$</span>{" "}
+          <span className="text-muted font-mono">$</span>{" "}
           <span className="text-green-400">
             Si tu negocio depende de ti, no es negocio. Es autoempleo caro.
           </span>{" "}
@@ -96,7 +96,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 1 + i * 0.15 }}
-              className="px-4 py-2 text-sm font-mono text-accent-light border border-accent/20 rounded-lg bg-accent/5"
+              className="px-4 py-2 text-sm font-mono text-white/60 border border-white/10 rounded-lg bg-white/5"
             >
               {phrase}
             </motion.span>

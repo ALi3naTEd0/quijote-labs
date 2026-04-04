@@ -12,7 +12,7 @@ export default function Solution() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: text */}
           <AnimatedSection>
-            <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-accent border border-accent/20 rounded-full mb-6">
+            <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-6">
               La Intervención
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
@@ -34,9 +34,9 @@ export default function Solution() {
               ].map((item, i) => (
                 <AnimatedSection key={item} delay={0.1 + i * 0.1}>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                       <svg
-                        className="w-4 h-4 text-accent"
+                        className="w-4 h-4 text-white/50"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -73,11 +73,11 @@ export default function Solution() {
 
                   <div className="font-mono text-sm space-y-3">
                     <div>
-                      <span className="text-accent">$</span>{" "}
+                      <span className="text-muted">$</span>{" "}
                       <span className="text-muted">diagnosticar</span>{" "}
                       <span className="text-foreground">--negocio</span>
                     </div>
-                    <div className="text-muted text-xs pl-4 border-l-2 border-accent/20">
+                    <div className="text-muted text-xs pl-4 border-l-2 border-white/10">
                       Encontrando lo que nadie quiere ver...
                       <br />
                       Midiendo el caos real...
@@ -85,7 +85,7 @@ export default function Solution() {
                       Identificando dónde se fuga el dinero...
                     </div>
                     <div>
-                      <span className="text-accent">$</span>{" "}
+                      <span className="text-muted">$</span>{" "}
                       <span className="text-muted">diseñar</span>{" "}
                       <span className="text-foreground">--sistema</span>
                     </div>
@@ -100,7 +100,7 @@ export default function Solution() {
                       que opera en serio
                     </div>
                     <div>
-                      <span className="text-accent">$</span>{" "}
+                      <span className="text-muted">$</span>{" "}
                       <span className="text-green-400">
                         Caos eliminado. Ahora sí puedes crecer.
                       </span>

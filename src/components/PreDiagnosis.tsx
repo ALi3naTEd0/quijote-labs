@@ -104,7 +104,7 @@ export default function PreDiagnosis() {
 
       <div className="max-w-3xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-accent border border-accent/20 rounded-full mb-6">
+          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-6">
             Pre-diagnóstico
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
@@ -137,7 +137,7 @@ export default function PreDiagnosis() {
                     }`}
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <p className="text-sm font-mono text-accent">
+                      <p className="text-sm font-mono text-muted">
                         {String(i + 1).padStart(2, "0")} /
                       </p>
                       <AnimatePresence>
@@ -208,7 +208,7 @@ export default function PreDiagnosis() {
             >
               <div className="border-gradient p-10">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className={`w-2 h-2 rounded-full ${loading ? "bg-accent animate-pulse" : "bg-green-400"}`} />
+                  <div className={`w-2 h-2 rounded-full ${loading ? "bg-white/30 animate-pulse" : "bg-green-400"}`} />
                   <span className="text-xs font-mono text-muted">
                     {loading ? "Analizando tu operación..." : "Análisis completado"}
                   </span>
@@ -219,7 +219,7 @@ export default function PreDiagnosis() {
                     <p className="text-red-400 text-sm font-mono">{error}</p>
                     <button
                       onClick={() => { setSubmitted(false); setError(""); setDiagnosisText(""); }}
-                      className="text-sm text-accent underline underline-offset-4"
+                      className="text-sm text-white/50 underline underline-offset-4"
                     >
                       Volver al formulario
                     </button>
@@ -231,7 +231,7 @@ export default function PreDiagnosis() {
                         <div className="space-y-4">
                           {[1, 2, 3].map((i) => (
                             <div key={i} className="flex items-start gap-3">
-                              <span className="text-accent font-mono mt-0.5">→</span>
+                              <span className="text-white/40 font-mono mt-0.5">→</span>
                               <div className="flex-1 h-5 bg-white/5 rounded animate-pulse" />
                             </div>
                           ))}
@@ -249,12 +249,12 @@ export default function PreDiagnosis() {
                                 transition={{ delay: i * 0.15 }}
                                 className="flex items-start gap-3 text-lg"
                               >
-                                <span className="text-accent font-mono mt-0.5 shrink-0">→</span>
+                                <span className="text-white/40 font-mono mt-0.5 shrink-0">→</span>
                                 <span>{line.replace(/^→\s*/, "")}</span>
                               </motion.p>
                             ))}
                           {loading && (
-                            <span className="inline-block text-accent animate-pulse font-mono">▊</span>
+                            <span className="inline-block text-muted animate-pulse font-mono">▊</span>
                           )}
                         </div>
                       )}

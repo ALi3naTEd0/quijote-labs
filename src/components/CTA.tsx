@@ -10,7 +10,7 @@ export default function CTA() {
 
       <div className="max-w-4xl mx-auto px-6 text-center">
         <AnimatedSection>
-          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-accent border border-accent/20 rounded-full mb-8">
+          <span className="inline-block px-4 py-1.5 text-xs font-mono tracking-wider uppercase text-white/40 border border-white/10 rounded-full mb-8">
             El Momento
           </span>
 
@@ -34,7 +34,7 @@ export default function CTA() {
               <motion.span
                 key={phrase}
                 whileHover={{ scale: 1.05 }}
-                className="px-5 py-2.5 text-sm font-mono text-accent-light border border-accent/20 rounded-full bg-accent/5 hover:bg-accent/10 transition-colors cursor-default"
+                className="px-5 py-2.5 text-sm font-mono text-white/50 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 transition-colors cursor-default"
               >
                 {phrase}
               </motion.span>
