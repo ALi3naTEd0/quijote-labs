@@ -86,97 +86,47 @@ export default function Sancho() {
           </p>
         </AnimatedSection>
 
-        {/* SANCHO visual */}
+        {/* What SANCHO is */}
         <AnimatedSection delay={0.2} className="mb-20">
           <div className="relative max-w-4xl mx-auto">
-            <div className="border-gradient p-1">
-              <div className="bg-surface rounded-[0.9rem] p-8 md:p-12">
-                {/* App bar simulation */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">S</span>
-                    </div>
-                    <span className="font-semibold">SANCHO</span>
-                    <span className="text-xs text-muted font-mono ml-2">
-                      v1.0
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-xs text-muted">En línea</span>
-                  </div>
-                </div>
+            <div className="border-gradient p-8 md:p-12">
+              <p className="text-lg text-muted leading-relaxed mb-10 max-w-2xl">
+                SANCHO no es un software genérico que instalas y ya. Es el sistema
+                integral que diseñamos <span className="text-foreground font-medium">contigo y para tu negocio</span> —
+                desde cero, ajustado a tu operación real.
+              </p>
 
-                {/* Dashboard mockup */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  {[
-                    { label: "Procesos automatizados", value: "24", change: "+3" },
-                    { label: "Errores que ya no pasan", value: "-78%", change: "" },
-                    { label: "Tiempo recuperado", value: "40h", change: "/sem" },
-                  ].map((stat) => (
-                    <motion.div
-                      key={stat.label}
-                      whileHover={{ scale: 1.02 }}
-                      className="bg-surface-light rounded-xl p-4"
-                    >
-                      <p className="text-xs text-muted mb-1">{stat.label}</p>
-                      <p className="text-2xl font-bold">
-                        {stat.value}
-                        <span className="text-xs text-muted ml-1">
-                          {stat.change}
-                        </span>
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Activity feed */}
-                <div className="space-y-3">
-                  {[
-                    {
-                      action: "Factura #1024 se cobró sola",
-                      time: "Hace 2 min",
-                      type: "auto",
-                    },
-                    {
-                      action: "Ventas actualizadas sin que nadie tocara nada",
-                      time: "Hace 15 min",
-                      type: "auto",
-                    },
-                    {
-                      action: "Reporte listo. Sin pedirlo.",
-                      time: "Hace 1 hora",
-                      type: "auto",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.action}
-                      className="flex items-center justify-between py-2 px-3 rounded-lg bg-white/[0.02] border border-white/5"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-md bg-accent/10 flex items-center justify-center">
-                          <svg
-                            className="w-3 h-3 text-accent-light"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
-                            />
-                          </svg>
-                        </div>
-                        <span className="text-sm">{item.action}</span>
-                      </div>
-                      <span className="text-xs text-muted">{item.time}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {[
+                  {
+                    area: "Ventas",
+                    desc: "Pipeline claro, seguimiento automático, sin depender de que alguien recuerde llamar.",
+                  },
+                  {
+                    area: "Operaciones",
+                    desc: "Procesos documentados y ejecutados sin que tengas que estar tú para que funcionen.",
+                  },
+                  {
+                    area: "Finanzas",
+                    desc: "Números en tiempo real. Sabes exactamente qué entra, qué sale y dónde se va.",
+                  },
+                ].map((item) => (
+                  <motion.div
+                    key={item.area}
+                    whileHover={{ y: -4 }}
+                    className="bg-surface-light rounded-xl p-6 border border-white/5"
+                  >
+                    <div className="w-1 h-8 bg-accent rounded-full mb-4" />
+                    <h3 className="font-bold text-lg mb-2">{item.area}</h3>
+                    <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
               </div>
+
+              <p className="mt-10 text-muted text-sm border-t border-white/5 pt-8">
+                El resultado: menos Excel, menos WhatsApp, menos &ldquo;se me olvidó&rdquo;.
+                Un sistema que trabaja aunque tú no estés mirando.
+              </p>
             </div>
           </div>
         </AnimatedSection>

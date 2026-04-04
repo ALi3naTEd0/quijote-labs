@@ -112,16 +112,16 @@ export default function Hero() {
         >
           <a
             href="#sancho"
-            className="group relative px-8 py-4 bg-accent hover:bg-accent-light text-white rounded-xl font-medium transition-all duration-300 overflow-hidden"
+            className="px-8 py-4 border border-white/60 hover:border-white text-foreground rounded-xl font-medium transition-all duration-300 hover:bg-white/5"
           >
-            <span className="relative z-10">Ver SANCHO</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            Ver SANCHO
           </a>
           <a
             href="#contacto"
-            className="px-8 py-4 border border-white/10 hover:border-accent/30 text-foreground rounded-xl font-medium transition-all duration-300 hover:bg-white/5"
+            className="group relative px-8 py-4 bg-accent hover:bg-accent-light text-white rounded-xl font-medium transition-all duration-300 overflow-hidden"
           >
-            Diagnosticar mi caos
+            <span className="relative z-10">Diagnosticar mi caos</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         </motion.div>
 
