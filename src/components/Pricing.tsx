@@ -54,7 +54,7 @@ export default function Pricing() {
                 <div className="w-8 h-0.5 bg-accent/50 mb-5 rounded-full" />
                 <h3 className="font-bold text-xl mb-4">{plan.name}</h3>
                 <p className="text-muted mb-6 leading-relaxed">{plan.desc}</p>
-                <p className="text-2xl font-bold mb-4 text-accent-light whitespace-nowrap">{plan.price}</p>
+                <p className="text-2xl font-bold mb-4 text-accent whitespace-nowrap">{plan.price}</p>
                 <p className="text-sm text-muted">{plan.note}</p>
               </motion.div>
             </AnimatedSection>

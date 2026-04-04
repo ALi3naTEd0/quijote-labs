@@ -8,7 +8,7 @@ export default function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/assets/logo-mark.svg" width={28} height={28} alt="Quijote Labs" />
             <span className="font-bold tracking-[0.1em] uppercase text-sm">
-              Quijote <span className="text-accent-light">Labs</span>
+              Quijote <span className="text-accent">Labs</span>
             </span>
           </div>
 
