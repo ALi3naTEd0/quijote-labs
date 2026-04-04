@@ -5,14 +5,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="relative w-7 h-7">
-              <div className="absolute inset-0 bg-accent rounded-md rotate-45" />
-              <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs">
-                Q
-              </span>
-            </div>
-            <span className="font-semibold tracking-tight">
-              Quijote <span className="text-muted font-normal">Labs</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/logo-mark.svg" width={28} height={28} alt="Quijote Labs" />
+            <span className="font-bold tracking-[0.1em] uppercase text-sm">
+              Quijote <span className="text-accent">Labs</span>
             </span>
           </div>
 

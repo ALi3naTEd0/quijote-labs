@@ -27,7 +27,7 @@ const plans = [
 export default function Pricing() {
   return (
     <section id="pricing" className="relative py-32 overflow-hidden">
-      <div className="glow-orb w-[500px] h-[500px] bg-indigo-400 top-[-100px] right-[-200px]" aria-hidden="true" />
+      <div className="glow-orb w-[500px] h-[500px] bg-accent top-[-100px] right-[-200px]" aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto px-6 text-center">
         <AnimatedSection>

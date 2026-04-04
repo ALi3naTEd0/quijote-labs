@@ -36,14 +36,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative w-8 h-8">
-            <div className="absolute inset-0 bg-accent rounded-lg rotate-45 group-hover:rotate-[135deg] transition-transform duration-500" />
-            <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">
-              Q
-            </span>
-          </div>
-          <span className="font-semibold text-lg tracking-tight">
-            Quijote <span className="text-muted font-normal">Labs</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/logo-mark.svg" width={36} height={36} alt="Quijote Labs" />
+          <span className="font-bold text-base tracking-[0.12em] uppercase">
+            Quijote <span className="text-accent font-bold tracking-[0.18em]">Labs</span>
           </span>
         </a>
 

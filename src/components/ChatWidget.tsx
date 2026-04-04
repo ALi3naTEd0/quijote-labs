@@ -201,12 +201,8 @@ export default function ChatWidget() {
           >
             {/* Header */}
             <div className="px-5 py-4 border-b border-white/5 flex items-center gap-3 shrink-0">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 bg-accent rounded-lg rotate-45" />
-                <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs">
-                  Q
-                </span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/logo-mark.svg" width={32} height={32} alt="Quijote Labs" />
               <div>
                 <p className="text-sm font-semibold">Diagnóstico Express</p>
                 <p className="text-xs text-muted">

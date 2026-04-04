@@ -17,7 +17,7 @@ export default function Hero() {
         aria-hidden="true"
       />
       <div
-        className="glow-orb w-[400px] h-[400px] bg-indigo-400 bottom-[-100px] right-[-100px]"
+        className="glow-orb w-[400px] h-[400px] bg-accent bottom-[-100px] right-[-100px]"
         aria-hidden="true"
       />
 
@@ -115,7 +115,7 @@ export default function Hero() {
             className="group relative px-8 py-4 bg-accent hover:bg-accent-light text-white rounded-xl font-medium transition-all duration-300 overflow-hidden"
           >
             <span className="relative z-10">Ver SANCHO</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-accent to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <a
             href="#contacto"

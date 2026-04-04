@@ -48,7 +48,7 @@ export default function CTA() {
             className="inline-flex items-center gap-3 px-10 py-5 bg-accent hover:bg-accent-light text-white rounded-2xl font-semibold text-lg transition-colors duration-300 relative overflow-hidden group"
           >
             <span className="relative z-10">Descubrir dónde estoy perdiendo dinero →</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-accent to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.a>
 
           <p className="mt-6 text-sm text-muted">

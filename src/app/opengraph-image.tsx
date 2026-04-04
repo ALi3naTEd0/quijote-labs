@@ -8,8 +8,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
-  const logoData = readFileSync(join(process.cwd(), "public/assets/logo.png"));
-  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
+  const svgData = readFileSync(join(process.cwd(), "public/assets/logo-mark.svg"));
+  const logoSrc = `data:image/svg+xml;base64,${svgData.toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -17,7 +17,7 @@ export default function Image() {
         style={{
           width: 1200,
           height: 630,
-          backgroundColor: "#030712",
+          backgroundColor: "#030508",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -35,7 +35,7 @@ export default function Image() {
             width: 500,
             height: 500,
             borderRadius: "50%",
-            background: "rgba(99, 102, 241, 0.18)",
+            background: "rgba(26, 79, 255, 0.22)",
             filter: "blur(100px)",
           }}
         />
@@ -48,20 +48,13 @@ export default function Image() {
             width: 360,
             height: 360,
             borderRadius: "50%",
-            background: "rgba(99, 102, 241, 0.12)",
+            background: "rgba(26, 79, 255, 0.14)",
             filter: "blur(80px)",
           }}
         />
 
-        {/* Logo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={logoBase64}
-          width={110}
-          height={110}
-          style={{ marginBottom: 28, objectFit: "contain" }}
-          alt="logo"
-        />
+        <img src={logoSrc} width={110} height={110} style={{ marginBottom: 24, objectFit: "contain" }} alt="logo" />
 
         {/* Brand name */}
         <div
