@@ -1,16 +1,16 @@
-“use client”;
+"use client";
 
-import { useState, useEffect, useCallback, useRef } from “react”;
-import Navbar from “@/components/Navbar”;
-import Footer from “@/components/Footer”;
-import Image from “next/image”;
-import { QuoteTemplatePremium } from “@/components/QuoteTemplatePremium”;
+import { useState, useEffect, useCallback, useRef } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Image from "next/image";
+import { QuoteTemplatePremium } from "@/components/QuoteTemplatePremium";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Moneda = “MXN” | “USD” | “EUR”;
-type TipoItem = “normal” | “descuento” | “adicional”;
-type Estado = “Borrador” | “Emitido” | “Pago pendiente” | “Pagado” | “Cancelado”;
+type Moneda = "MXN" | "USD" | "EUR";
+type TipoItem = "normal" | "descuento" | "adicional";
+type Estado = "Borrador" | "Emitido" | "Pago pendiente" | "Pagado" | "Cancelado";
 
 interface Item {
 id: string;
@@ -45,39 +45,39 @@ updatedAt: number;
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const LS_KEY = “ql_cotizaciones_v1”;
+const LS_KEY = "ql_cotizaciones_v1";
 
 const ESTADO_STYLE: Record<Estado, string> = {
-Borrador:         “text-white/40 border-white/15 bg-white/5”,
-Emitido:          “text-[#4d7fff] border-[rgba(26,79,255,0.35)] bg-[rgba(26,79,255,0.12)]”,
-“Pago pendiente”: “text-[#fbbf24] border-[rgba(251,191,36,0.35)] bg-[rgba(251,191,36,0.12)]”,
-Pagado:           “text-[#34d399] border-[rgba(52,211,153,0.35)] bg-[rgba(52,211,153,0.12)]”,
-Cancelado:        “text-[#fb7185] border-[rgba(251,113,133,0.35)] bg-[rgba(251,113,133,0.12)]”,
+Borrador:         "text-white/40 border-white/15 bg-white/5",
+Emitido:          "text-[#4d7fff] border-[rgba(26,79,255,0.35)] bg-[rgba(26,79,255,0.12)]",
+"Pago pendiente": "text-[#fbbf24] border-[rgba(251,191,36,0.35)] bg-[rgba(251,191,36,0.12)]",
+Pagado:           "text-[#34d399] border-[rgba(52,211,153,0.35)] bg-[rgba(52,211,153,0.12)]",
+Cancelado:        "text-[#fb7185] border-[rgba(251,113,133,0.35)] bg-[rgba(251,113,133,0.12)]",
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function uid() {
-return typeof crypto !== “undefined” && crypto.randomUUID
+return typeof crypto !== "undefined" && crypto.randomUUID
 ? crypto.randomUUID()
 : Math.random().toString(36).slice(2, 10);
 }
 
 function fmt(n: number, moneda: Moneda) {
-return new Intl.NumberFormat(“es-MX”, {
-style: “currency”, currency: moneda, minimumFractionDigits: 2,
+return new Intl.NumberFormat("es-MX", {
+style: "currency", currency: moneda, minimumFractionDigits: 2,
 }).format(n);
 }
 
 function todayStr() {
-return new Date().toLocaleDateString(“es-MX”, {
-day: “2-digit”, month: “short”, year: “numeric”,
-}).toUpperCase().replace(”.”, “”);
+return new Date().toLocaleDateString("es-MX", {
+day: "2-digit", month: "short", year: "numeric",
+}).toUpperCase().replace(".", "");
 }
 
 function loadAll(): Cotizacion[] {
-if (typeof window === “undefined”) return [];
-try { return JSON.parse(localStorage.getItem(LS_KEY) || “[]”); } catch { return []; }
+if (typeof window === "undefined") return [];
+try { return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); } catch { return []; }
 }
 
 function saveAll(list: Cotizacion[]) {
@@ -98,45 +98,45 @@ const nums = list.map(c => {
 const m = c.folio.match(/EDC-\d{4}-(\d+)/);
 return m ? parseInt(m[1]) : 0;
 }).filter(Boolean);
-const n = nums.length ? Math.max(…nums) + 1 : 1;
+const n = nums.length ? Math.max(...nums) + 1 : 1;
 return `EDC-${year}-${String(n).padStart(3, "0")}`;
 }
 
-function makeItem(tipo: TipoItem = “normal”): Item {
+function makeItem(tipo: TipoItem = "normal"): Item {
 return {
-id: uid(), concepto: “”, nota: “”, monto: 0, tipo,
-tag: tipo === “descuento” ? “DESC” : tipo === “adicional” ? “ADICIONAL” : “”,
+id: uid(), concepto: "", nota: "", monto: 0, tipo,
+tag: tipo === "descuento" ? "DESC" : tipo === "adicional" ? "ADICIONAL" : "",
 };
 }
 
 function makePago(): Pago {
-return { id: uid(), descripcion: “Abono”, fecha: todayStr(), monto: 0 };
+return { id: uid(), descripcion: "Abono", fecha: todayStr(), monto: 0 };
 }
 
 function makeCotizacion(list: Cotizacion[]): Cotizacion {
 const now = Date.now();
 return {
 id: uid(), folio: nextFolio(list),
-cliente: “”, moneda: “MXN”, fechaEmision: todayStr(),
-proyecto: “”, estado: “Borrador”,
-items: [makeItem(“normal”)],
+cliente: "", moneda: "MXN", fechaEmision: todayStr(),
+proyecto: "", estado: "Borrador",
+items: [makeItem("normal")],
 pagos: [],
-notaFinal: “Favor de liquidar el saldo a la brevedad. Contáctanos directamente.”,
+notaFinal: "Favor de liquidar el saldo a la brevedad. Contáctanos directamente.",
 createdAt: now, updatedAt: now,
 };
 }
 
 function totals(c: Cotizacion) {
-const firstAdic = c.items.findIndex(i => i.tipo === “adicional”);
+const firstAdic = c.items.findIndex(i => i.tipo === "adicional");
 const base = firstAdic >= 0 ? c.items.slice(0, firstAdic) : c.items;
 const adic = firstAdic >= 0 ? c.items.slice(firstAdic) : [];
-const subtotal = base.reduce((s, i) => s + (i.tipo === “descuento” ? -i.monto : i.monto), 0);
-const total = c.items.reduce((s, i) => s + (i.tipo === “descuento” ? -i.monto : i.monto), 0);
+const subtotal = base.reduce((s, i) => s + (i.tipo === "descuento" ? -i.monto : i.monto), 0);
+const total = c.items.reduce((s, i) => s + (i.tipo === "descuento" ? -i.monto : i.monto), 0);
 const pagado = c.pagos.reduce((s, p) => s + p.monto, 0);
 return { base, adic, subtotal, total, pagado, saldo: total - pagado, hasAdic: adic.length > 0 };
 }
 
-// ─── Preview (dark — original) ────────────────────────────────────────────────
+// ─── Preview (dark -- original) ────────────────────────────────────────────────
 
 function Preview({ c, forPrint = false }: { c: Cotizacion; forPrint?: boolean }) {
 const t = totals(c);
@@ -144,9 +144,9 @@ const hasSubtotal = t.hasAdic;
 
 return (
 <div
-id=“cotizacion-preview”
+id="cotizacion-preview"
 className={`bg-[#080d14] text-white font-[family-name:var(--font-barlow)] ${forPrint ? "w-full" : "rounded-xl border border-white/5 overflow-hidden"}`}
-style={{ fontFamily: “var(–font-barlow, sans-serif)” }}
+style={{ fontFamily: "var(-font-barlow, sans-serif)" }}
 >
 {/* Header */}
 <div className="bg-[#0d1520] border-b border-white/5 px-6 py-4 flex items-center justify-between">
@@ -159,7 +159,7 @@ style={{ fontFamily: “var(–font-barlow, sans-serif)” }}
 </div>
 <div className="text-right">
 <div className="font-[family-name:var(--font-bebas)] text-2xl tracking-wider text-[#fbbf24]">
-{c.folio || “#EDC-0000-000”}
+{c.folio || "#EDC-0000-000"}
 </div>
 <div className="text-[9px] font-mono tracking-[0.2em] text-white/30 uppercase">Estado</div>
 <span className={`inline-block mt-0.5 px-2 py-0.5 rounded text-[9px] font-mono tracking-wider uppercase border ${ESTADO_STYLE[c.estado]}`}>
@@ -168,14 +168,13 @@ style={{ fontFamily: “var(–font-barlow, sans-serif)” }}
 </div>
 </div>
 
-```
   {/* Meta row */}
   <div className="border-b border-white/5 px-6 py-3 grid grid-cols-4 gap-4 bg-[#0a1219]">
     {[
       { label: "Emitido por", val: "Quijote Labs" },
-      { label: "Cliente",     val: c.cliente || "—" },
+      { label: "Cliente",     val: c.cliente || "--" },
       { label: "Moneda",      val: c.moneda },
-      { label: "Fecha emisión", val: c.fechaEmision || "—" },
+      { label: "Fecha emisión", val: c.fechaEmision || "--" },
     ].map(f => (
       <div key={f.label}>
         <div className="text-[8px] font-mono tracking-[0.15em] text-white/25 uppercase mb-0.5">{f.label}</div>
@@ -204,7 +203,7 @@ style={{ fontFamily: “var(–font-barlow, sans-serif)” }}
           <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4 items-start">
             <div>
               <div className="flex items-center gap-2 text-sm font-medium">
-                {item.concepto || "—"}
+                {item.concepto || "--"}
                 {item.tag && (
                   <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded border tracking-wider ${
                     item.tipo === "descuento"
@@ -234,7 +233,7 @@ style={{ fontFamily: “var(–font-barlow, sans-serif)” }}
           <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4 items-start">
             <div>
               <div className="flex items-center gap-2 text-sm font-medium">
-                {item.concepto || "—"}
+                {item.concepto || "--"}
                 {item.tag && (
                   <span className="text-[9px] font-mono px-1.5 py-0.5 rounded border tracking-wider text-[#60a5fa] border-[rgba(96,165,250,0.4)] bg-[rgba(96,165,250,0.1)]">
                     {item.tag}
@@ -314,7 +313,6 @@ style={{ fontFamily: “var(–font-barlow, sans-serif)” }}
     </div>
   </div>
 </div>
-```
 
 );
 }
@@ -335,16 +333,16 @@ saved: boolean;
 }) {
 const [premiumMode, setPremiumMode] = useState(false);
 
-const set = (patch: Partial<Cotizacion>) => onChange({ …c, …patch, updatedAt: Date.now() });
+const set = (patch: Partial<Cotizacion>) => onChange({ ...c, ...patch, updatedAt: Date.now() });
 const setItem = (id: string, patch: Partial<Item>) =>
-set({ items: c.items.map(i => i.id === id ? { …i, …patch } : i) });
+set({ items: c.items.map(i => i.id === id ? { ...i, ...patch } : i) });
 const setPago = (id: string, patch: Partial<Pago>) =>
-set({ pagos: c.pagos.map(p => p.id === id ? { …p, …patch } : p) });
+set({ pagos: c.pagos.map(p => p.id === id ? { ...p, ...patch } : p) });
 const removeItem = (id: string) => set({ items: c.items.filter(i => i.id !== id) });
 const removePago = (id: string) => set({ pagos: c.pagos.filter(p => p.id !== id) });
 
-const inputCls = “w-full bg-surface border border-white/10 rounded-lg px-3 py-2 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors”;
-const labelCls = “block text-[10px] font-mono tracking-wider uppercase text-white/30 mb-1”;
+const inputCls = "w-full bg-surface border border-white/10 rounded-lg px-3 py-2 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors";
+const labelCls = "block text-[10px] font-mono tracking-wider uppercase text-white/30 mb-1";
 
 return (
 <div className="grid lg:grid-cols-[420px_1fr] gap-6 items-start">
@@ -364,7 +362,7 @@ Copiar enlace
 onClick={() => setPremiumMode(!premiumMode)}
 className={`px-3 py-1.5 text-xs font-mono border rounded-lg transition-colors ${ premiumMode ? "border-[#2563eb]/50 text-[#2563eb] bg-[#2563eb]/10" : "border-white/10 text-white/50 hover:border-white/20 hover:text-white/70" }`}
 >
-{premiumMode ? “◉ Premium” : “○ Premium”}
+{premiumMode ? "◉ Premium" : "○ Premium"}
 </button>
 {/* PDF según modo */}
 {premiumMode ? (
@@ -380,12 +378,11 @@ Exportar PDF
 </button>
 )}
 <button onClick={onSave} className="px-4 py-1.5 text-xs font-mono bg-accent hover:bg-accent-light text-white rounded-lg transition-colors">
-{saved ? “✓ Guardado” : “Guardar”}
+{saved ? "✓ Guardado" : "Guardar"}
 </button>
 </div>
 </div>
 
-```
     {/* Header fields */}
     <div className="border border-white/5 bg-surface rounded-xl p-4 space-y-3">
       <div className="text-[10px] font-mono tracking-wider uppercase text-white/25 mb-1">Encabezado</div>
@@ -411,9 +408,9 @@ Exportar PDF
         <div>
           <label className={labelCls}>Moneda</label>
           <select className={inputCls} value={c.moneda} onChange={e => set({ moneda: e.target.value as Moneda })}>
-            <option value="MXN">MXN — Pesos</option>
-            <option value="USD">USD — Dólares</option>
-            <option value="EUR">EUR — Euros</option>
+            <option value="MXN">MXN -- Pesos</option>
+            <option value="USD">USD -- Dólares</option>
+            <option value="EUR">EUR -- Euros</option>
           </select>
         </div>
         <div>
@@ -563,7 +560,6 @@ Exportar PDF
     )}
   </div>
 </div>
-```
 
 );
 }
@@ -572,9 +568,9 @@ Exportar PDF
 
 function PrintView({ c, onClose }: { c: Cotizacion; onClose: () => void }) {
 useEffect(() => {
-const handle = (e: KeyboardEvent) => { if (e.key === “Escape”) onClose(); };
-window.addEventListener(“keydown”, handle);
-return () => window.removeEventListener(“keydown”, handle);
+const handle = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+window.addEventListener("keydown", handle);
+return () => window.removeEventListener("keydown", handle);
 }, [onClose]);
 
 return (
@@ -583,7 +579,7 @@ return (
 <span className="text-xs font-mono text-white/40">Vista de impresión · ESC para cerrar</span>
 <div className="flex gap-3">
 <button onClick={onClose} className="text-xs font-mono text-white/40 hover:text-white/70 transition-colors">✕ Cerrar</button>
-<button onClick={() => window.print()} className=“px-4 py-1.5 text-xs font-mono bg-accent hover:bg-accent-light text-white rounded-lg transition-colors”>
+<button onClick={() => window.print()} className="px-4 py-1.5 text-xs font-mono bg-accent hover:bg-accent-light text-white rounded-lg transition-colors">
 Imprimir / Guardar PDF
 </button>
 </div>
@@ -599,27 +595,27 @@ Imprimir / Guardar PDF
 
 // ─── Main page ────────────────────────────────────────────────────────────────
 
-type View = “list” | “editor”;
+type View = "list" | "editor";
 
 export default function CotizadorPage() {
 const [list, setList] = useState<Cotizacion[]>([]);
-const [view, setView] = useState<View>(“list”);
+const [view, setView] = useState<View>("list");
 const [current, setCurrent] = useState<Cotizacion | null>(null);
 const [saved, setSaved] = useState(false);
 const [printing, setPrinting] = useState(false);
-const [toast, setToast] = useState(””);
+const [toast, setToast] = useState("");
 const importRef = useRef<HTMLInputElement>(null);
 
 useEffect(() => {
 const all = loadAll();
 setList(all);
 const params = new URLSearchParams(window.location.search);
-const q = params.get(“q”);
+const q = params.get("q");
 if (q) {
 const decoded = decodeQ(q);
 if (decoded) {
 setCurrent(decoded);
-setView(“editor”);
+setView("editor");
 setSaved(false);
 }
 }
@@ -627,33 +623,33 @@ setSaved(false);
 
 const showToast = (msg: string) => {
 setToast(msg);
-setTimeout(() => setToast(””), 2500);
+setTimeout(() => setToast(""), 2500);
 };
 
 const openNew = () => {
 const c = makeCotizacion(list);
 setCurrent(c);
-setView(“editor”);
+setView("editor");
 setSaved(false);
-window.history.pushState({}, “”, “/cotizador”);
+window.history.pushState({}, "", "/cotizador");
 };
 
 const openExisting = (c: Cotizacion) => {
 setCurrent(c);
-setView(“editor”);
+setView("editor");
 setSaved(true);
-window.history.pushState({}, “”, “/cotizador”);
+window.history.pushState({}, "", "/cotizador");
 };
 
 const handleSave = useCallback(() => {
 if (!current) return;
 const updated = list.some(x => x.id === current.id)
 ? list.map(x => x.id === current.id ? current : x)
-: […list, current];
+: [...list, current];
 setList(updated);
 saveAll(updated);
 setSaved(true);
-showToast(“Cotización guardada”);
+showToast("Cotización guardada");
 }, [current, list]);
 
 const handleDelete = (id: string) => {
@@ -665,13 +661,13 @@ saveAll(updated);
 const handleShare = useCallback(() => {
 if (!current) return;
 const url = `${window.location.origin}/cotizador?q=${encodeQ(current)}`;
-navigator.clipboard.writeText(url).then(() => showToast(“Enlace copiado al portapapeles”));
+navigator.clipboard.writeText(url).then(() => showToast("Enlace copiado al portapapeles"));
 }, [current]);
 
 const handleExportJSON = () => {
 if (!current) return;
-const blob = new Blob([JSON.stringify(current, null, 2)], { type: “application/json” });
-const a = document.createElement(“a”);
+const blob = new Blob([JSON.stringify(current, null, 2)], { type: "application/json" });
+const a = document.createElement("a");
 a.href = URL.createObjectURL(blob);
 a.download = `${current.folio}.json`;
 a.click();
@@ -685,46 +681,46 @@ reader.onload = ev => {
 try {
 const c = JSON.parse(ev.target?.result as string) as Cotizacion;
 setCurrent(c);
-setView(“editor”);
+setView("editor");
 setSaved(false);
 showToast(`Cargado: ${c.folio}`);
-} catch { showToast(“Error al leer el archivo”); }
+} catch { showToast("Error al leer el archivo"); }
 };
 reader.readAsText(file);
-e.target.value = “”;
+e.target.value = "";
 };
 
 const handleDuplicar = (c: Cotizacion) => {
-const dup = { …c, id: uid(), folio: nextFolio(list), createdAt: Date.now(), updatedAt: Date.now() };
+const dup = { ...c, id: uid(), folio: nextFolio(list), createdAt: Date.now(), updatedAt: Date.now() };
 setCurrent(dup);
-setView(“editor”);
+setView("editor");
 setSaved(false);
 };
 
-// ── PDF Premium (html2pdf.js — lazy import) ──
+// ── PDF Premium (html2pdf.js -- lazy import) ──
 const handleExportPremiumPDF = useCallback(async () => {
 if (!current) return;
-showToast(“Generando PDF…”);
+showToast("Generando PDF...");
 try {
-// @ts-expect-error — html2pdf no tiene types oficiales
-const html2pdf = (await import(“html2pdf.js”)).default;
-const el = document.getElementById(“quote-premium-preview”);
-if (!el) { showToast(“Error: preview no encontrado”); return; }
+// @ts-expect-error -- html2pdf no tiene types oficiales
+const html2pdf = (await import("html2pdf.js")).default;
+const el = document.getElementById("quote-premium-preview");
+if (!el) { showToast("Error: preview no encontrado"); return; }
 await html2pdf()
 .set({
 margin: 0,
 filename: `Cotizacion_${current.cliente || "QLabs"}_${current.folio}.pdf`,
-image: { type: “jpeg”, quality: 0.98 },
+image: { type: "jpeg", quality: 0.98 },
 html2canvas: { scale: 2, useCORS: true, logging: false },
-jsPDF: { unit: “mm”, format: “a4”, orientation: “portrait” },
-pagebreak: { mode: “avoid-all” },
+jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+pagebreak: { mode: "avoid-all" },
 })
 .from(el)
 .save();
-showToast(“PDF descargado ✓”);
+showToast("PDF descargado ✓");
 } catch (err) {
 console.error(err);
-showToast(“Error al generar PDF”);
+showToast("Error al generar PDF");
 }
 }, [current]);
 
@@ -732,7 +728,6 @@ return (
 <>
 <style>{`@media print { body * { visibility: hidden !important; } #cotizacion-preview, #cotizacion-preview * { visibility: visible !important; } #cotizacion-preview { position: fixed !important; top: 0; left: 0; width: 100vw !important; } .no-print { display: none !important; } @page { margin: 0; size: A4 landscape; } }`}</style>
 
-```
   {printing && current && <PrintView c={current} onClose={() => setPrinting(false)} />}
 
   {toast && (
@@ -868,7 +863,6 @@ return (
     <Footer />
   </div>
 </>
-```
 
 );
 }
